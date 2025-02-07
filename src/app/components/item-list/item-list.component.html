@@ -1,0 +1,26 @@
+<div class="items-container">
+    <h2>Articles des autres utilisateurs</h2>
+    <div class="all-item">
+        <div class="item-card" *ngFor="let item of products$ | async">
+            <img [src]="item.imageUrl" alt="{{ item.title }}">
+            <div>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                <p class="price">{{ item.price }} FCFA</p>
+                <button (click)="buyItem(item)">Acheter</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="content"> -->
+<!-- {{products$}} -->
+<!-- <div class="cart-product" *ngFor="let product of products$ | async"> -->
+<!-- <img [src]="product.imageUrl" alt="{{ product.title }}"> -->
+<!-- <h2>{{ product.title }}</h2> -->
+<!-- <p>{{ product.description }}</p> -->
+<!-- <p class="price">{{ product.price }} FCFA</p> -->
+<!-- <a (click)="redirect({name:product.title, prix: product.price})" class="buy-buttonTransition">Acheter</a> -->
+<!-- </div> -->
+<!-- <button class="buy-button">Acheter</button> -->
+<!-- </div> -->

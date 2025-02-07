@@ -1,0 +1,13 @@
+<div class="content">
+  <!-- {{products$}} -->
+    <div class=  "cart-product" *ngFor="let product of products$ | async"  [style.background-image]="'url(' + product.imageUrl + ')'"> 
+      <div class="product-details"> 
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <p class="price">{{ product.price }} FCFA</p>
+        <a (click)="redirect({name:product.title, prix: product.price})" class="buy-buttonTransition">Acheter</a>
+      </div>
+      <button class="buy-button">Acheter</button>
+    </div>
+  </div>
+  

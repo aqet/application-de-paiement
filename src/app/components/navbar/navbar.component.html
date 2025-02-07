@@ -1,0 +1,14 @@
+<ng-container *ngIf="!url">
+    <nav class="navbar">
+        <div class="logo">
+            <a (click)="redirectTo('accueil')">🏠 Accueil</a>
+        </div>
+        <div class="nav-links">
+            <a (click)="redirectTo('items')" *ngIf="isLoggedIn">Tous les Articles</a>
+            <a (click)="redirectTo('my-items')" *ngIf="isLoggedIn">Mes Articles</a>
+            <a (click)="redirectTo('add-item')" *ngIf="isLoggedIn">Ajouter un Article</a>
+        </div>
+        <button class="logout" (click)="logout()" *ngIf="isLoggedIn">Déconnexion</button>
+        <button class="login" (click)="login()" *ngIf="!isLoggedIn">Connexion</button>
+    </nav>
+</ng-container>

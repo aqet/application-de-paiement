@@ -1,0 +1,116 @@
+<div class="content">
+    <form (ngSubmit)="submit()" class="form" [formGroup]="PaymentInformation">
+        <div>
+            <a (click)="backTo()"><mat-icon>reply</mat-icon></a>
+            <h2>Payement: {{typepament}}</h2>
+        </div>
+        <!-- visa -->
+        <div class="containt" *ngIf="typepament=='visa'">
+            <div class="element">
+
+                <label for=""><mat-icon>credit_card</mat-icon>numero de carte</label>
+                <input type="number" formControlName="cartNumber">
+                <div *ngIf="PaymentInformation.get('cartNumber')?.touched && PaymentInformation.get('cartNumber')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('cartNumber') }}
+                </div>
+            </div>
+            <div class="element">
+
+                <label for=""><mat-icon>event</mat-icon>Date d'expiration</label>
+                <input type="text" formControlName="expirationDate">
+                <div *ngIf="PaymentInformation.get('expirationDate')?.touched && PaymentInformation.get('expirationDate')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('expirationDate') }}
+                </div>
+            </div>
+            <div class="element">
+
+                <label for=""><mat-icon>lock</mat-icon>code CVV</label>
+                <input type="text" formControlName="cvvCode">
+                <div *ngIf="PaymentInformation.get('cvvCode')?.touched && PaymentInformation.get('cvvCode')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('cvvCode') }}
+                </div>
+            </div>
+        </div>
+
+        <!-- paypal -->
+        <div class="containt" *ngIf="typepament=='paypal'">
+            <div class="element">
+                <!-- <mat-icon>account_balance_wallet</mat-icon> -->
+                <label><mat-icon>email</mat-icon>Email PayPal</label>
+                <input type="email" formControlName="paypalEmail" placeholder="Entrez votre email PayPal" />
+                <div *ngIf="PaymentInformation.get('paypalEmail')?.dirty && PaymentInformation.get('paypalEmail')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('paypalEmail') }}
+                </div>
+
+            </div>
+        </div>
+
+        <!-- OM -->
+        <div class="containt" *ngIf="typepament=='om'">
+            <div class="element">
+                <label for=""><mat-icon>phone</mat-icon>numero du compte a debiter</label>
+                <input type="text" formControlName="omPhone">
+                <div *ngIf="PaymentInformation.get('omPhone')?.dirty && PaymentInformation.get('omPhone')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('omPhone') }}
+                </div>
+            </div>
+            <div class="element">
+                <label for=""><mat-icon>description</mat-icon>Raison du paiement</label>
+                <input type="text" formControlName="omReason">
+                <div *ngIf="PaymentInformation.get('omReason')?.dirty && PaymentInformation.get('omReason')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('omReason') }}
+                </div>
+            </div>
+            <div class="element">
+                <label for=""><mat-icon>person</mat-icon>Nom de l'utilisateur</label>
+                <input type="text" formControlName="omUserName">
+                <div *ngIf="PaymentInformation.get('omUserName')?.dirty && PaymentInformation.get('omUserName')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('omUserName') }}
+                </div>
+            </div>
+        </div>
+
+        <!-- MOMO -->
+        <div class="containt" *ngIf="typepament=='momo'">
+            <div class="element">
+                <label for=""><mat-icon>phone</mat-icon>numero du compte a debiter</label>
+                <input type="text" formControlName="momoPhone">
+                <div *ngIf="PaymentInformation.get('momoPhone')?.dirty && PaymentInformation.get('momoPhone')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('momoPhone') }}
+                </div>
+            </div>
+            <div class="element">
+                <label for=""><mat-icon>description</mat-icon>Raison du paiement</label>
+                <input type="text" formControlName="momoReason">
+                <div *ngIf="PaymentInformation.get('momoReason')?.dirty && PaymentInformation.get('momoReason')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('momoReason') }}
+                </div>
+            </div>
+            <div class="element">
+
+                <label for=""><mat-icon>person</mat-icon>Nom de l'utilisateur</label>
+                <input type="text" formControlName="momoUserName">
+                <div *ngIf="PaymentInformation.get('momoUserName')?.dirty && PaymentInformation.get('momoUserName')?.invalid"
+                    class="validator-error">
+                    {{ getErrorMessage('momoUserName') }}
+                </div>
+            </div>
+        </div>
+
+        <button [disabled]="PaymentInformation.invalid"><mat-icon>account_balance_wallet</mat-icon>Payer
+            maintenant</button>
+        <div *ngIf="isLoading" class="loader-container">
+            <div class="loader"></div>
+            <p>Transaction en cours...</p>
+        </div>
+    </form>
+</div>

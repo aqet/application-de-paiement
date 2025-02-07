@@ -1,0 +1,102 @@
+/* Global container styles */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f3f8ff, #eaf2fd);
+    color: #333333;
+}
+
+/* Card styles */
+.register-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+
+    h2 {
+        color: #0077ff;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+    }
+}
+
+/* Form styles */
+.register-form {
+    .form-group {
+        margin-bottom: 1.5rem;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: #555555;
+        }
+
+        input {
+            padding: 0.8rem;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            background: #f7faff;
+            color: #333333;
+            font-size: 1rem;
+
+            &:focus {
+                outline: none;
+                border-color: #80bfff;
+                box-shadow: 0px 0px 8px rgba(128, 191, 255, 0.5);
+            }
+        }
+
+        .error-message {
+            margin-top: 0.3rem;
+            font-size: 0.85rem;
+            color: #e63946;
+        }
+    }
+}
+
+/* Button styles */
+.register-button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    background: #0077ff;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: #005bbf;
+    }
+
+    &:disabled {
+        background: #d1d9e6;
+        cursor: not-allowed;
+    }
+}
+
+/* Already have an account styles */
+.already-account {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555555;
+
+    a {
+        color: #0077ff;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

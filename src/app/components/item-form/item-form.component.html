@@ -1,0 +1,29 @@
+<div class="form-container">
+    <h2>Ajouter un Article</h2>
+    <form (ngSubmit)="submitForm()" [formGroup]="form">
+        
+        <div class="input-group">
+            <mat-icon>label</mat-icon>
+            <input type="text" formControlName="title" placeholder="Nom de l'article" required>
+        </div>
+
+        <div class="input-group">
+            <mat-icon>description</mat-icon>
+            <textarea formControlName="description" placeholder="Description" required></textarea>
+        </div>
+
+        <div class="input-group">
+            <mat-icon>attach_money</mat-icon>
+            <input type="number" formControlName="price" placeholder="Prix" required>
+        </div>
+
+        <div class="input-group">
+            <mat-icon>image</mat-icon>
+            <input type="text" formControlName="imageUrl" placeholder="Image (URL)" required>
+        </div>
+
+        <button type="submit" [disabled]="!form.valid">
+            <mat-icon>add_circle</mat-icon> Ajouter
+        </button>
+    </form>
+</div>

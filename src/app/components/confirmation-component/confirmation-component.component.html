@@ -1,0 +1,33 @@
+<div class="confirmation-container">
+    <!-- Loader -->
+    <div *ngIf="isLoading" class="loader-container">
+        <div class="loader"></div>
+        <p>Chargement en cours...</p>
+    </div>
+    <div *ngIf="!isLoading" class="transaction-summary" [ngClass]="{'error': transactionFailed, 'success': transactionSuccess}">
+
+        <div class="status-icon">
+            <mat-icon *ngIf="transactionSuccess" class="success-icon">check_circle</mat-icon>
+            <mat-icon *ngIf="transactionFailed" class="error-icon">cancel</mat-icon>
+          </div>
+
+        <h2>{{ transactionFailed ? 'Échec de la Transaction' : 'Paiement Réussi' }}</h2>
+
+        <div class="summary-card">
+            <div class="details">
+                <p><strong>Montant :</strong> {{ amount }} FCFA</p>
+                <p><strong>Mode de paiement :</strong> {{ paymentMethod }}</p>
+                <p><strong>Produit :</strong> {{ productName }}</p>
+                <p><strong>Statut :</strong> {{ transactionStatus }}</p>
+            </div>
+        </div>
+
+        <p *ngIf="transactionFailed" class="error-message">Une erreur est survenue, veuillez verifier votre solde et réessayer.</p>
+        <p *ngIf="transactionSuccess" class="home-button">Vous avez ete debiter de {{amount}}FCFA.</p>
+
+        <div class="buttons">
+            <button *ngIf="transactionFailed" class="retry-button" (click)="retryTransaction()">Réessayer</button>
+            <button *ngIf="transactionSuccess" class="home-button" (click)="goToHome()">Retour à l'accueil</button>
+        </div>
+    </div>
+</div>

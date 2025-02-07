@@ -1,0 +1,148 @@
+/* Styles pour centrer le conteneur principal */
+.payment-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #f9f9f9;
+    padding: 16px;
+}
+
+mat-icon {
+    margin-right: 0.5rem;
+    color: #007bff;
+}
+
+/* Style des cartes */
+.payment-card {
+    width: 300px;
+    /* Largeur fixe pour chaque carte */
+    padding: 20px;
+    border-radius: 12px;
+    /* Bordures arrondies plus douces */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Légère ombre */
+    background-color: #ffffff;
+    /* Fond de la carte */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+    h3 {
+        color: white;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        background-color: #e3f2fd;
+        /* Effet zoom au survol */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        border: 2px solid #2196f3;
+        /* Ombre plus marquée */
+    }
+
+    &.visa {
+        background-color: #1A1F71;
+    }
+
+    &.paypal {
+        background: linear-gradient(135deg, #003087, #009CDE);
+    }
+
+    &.momo {
+        background-color: #FFCC00;
+    }
+
+    &.om {
+        background: linear-gradient(135deg, #FF6600, #525050);
+    }
+
+    &.selected {
+        background-color: #e3f2fd;
+        /* Fond bleu clair lorsqu'une carte est sélectionnée */
+        border: 2px solid #2196f3;
+        /* Bordure bleue de sélection */
+    }
+}
+
+/* Conteneur des icônes (logo) */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    /* Espacement du bas pour aérer */
+
+    .payment-icon {
+        width: 80px;
+        /* Augmenter la taille de l'icône */
+        height: 80px;
+        object-fit: contain;
+        /* Pour préserver les proportions des logos */
+        // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        /* Ombre subtile autour de l'icône */
+        border-radius: 8px;
+        /* Bordures douces pour l'icône */
+        transition: transform 0.3s ease;
+    }
+
+    .payment-icon:hover {
+        transform: scale(1.1);
+        /* Zoom léger au survol de l'icône */
+    }
+}
+
+/* Titre de la carte */
+.payment-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 10px 0;
+    color: #333333;
+    /* Texte sombre pour contraste */
+}
+
+/* Style du bouton "Sélectionner" */
+button {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border-radius: 25px;
+    /* Bordure arrondie du bouton */
+    background-color: #2196f3;
+    /* Couleur du bouton */
+    color: #fff;
+    /* Texte du bouton en blanc */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);
+    /* Ombre subtile du bouton */
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /* Effet au survol */
+    &:hover {
+        background-color: #1976d2;
+        /* Couleur plus foncée lors du survol */
+        box-shadow: 0 6px 12px rgba(33, 150, 243, 0.3);
+        /* Ombre plus marquée */
+        transform: scale(1.05);
+        /* Effet de zoom sur le bouton */
+    }
+
+    /* Effet au focus */
+    &:focus {
+        outline: none;
+        /* Retirer le contour par défaut */
+        box-shadow: 0 0 8px 2px rgba(33, 150, 243, 0.5);
+        /* Ombre bleue intense au focus */
+    }
+
+    /* Effet actif */
+    &:active {
+        background-color: #1565c0;
+        /* Couleur plus foncée lors du clic */
+        transform: scale(0.98);
+        /* Réduire légèrement la taille lors du clic */
+    }
+}

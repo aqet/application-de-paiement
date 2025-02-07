@@ -1,0 +1,117 @@
+.confirmation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+// Loader
+.loader-container {
+    text-align: center;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.transaction-summary {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+
+    &.error {
+        border-left: 5px solid red;
+    }
+
+    &.success {
+        border-left: 5px solid green;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+}
+
+.status-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+
+    .success-icon {
+        color: green;
+    }
+
+    .error-icon {
+        color: red;
+    }
+}
+
+.summary-card {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.error-message {
+    color: white;
+    background: red;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.retry-button,
+.home-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.retry-button {
+    background: red;
+    color: white;
+
+    &:hover {
+        background: darkred;
+    }
+}
+
+.home-button {
+    background: green;
+    color: white;
+
+    &:hover {
+        background: darkgreen;
+    }
+}

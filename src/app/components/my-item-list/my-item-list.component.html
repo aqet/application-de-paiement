@@ -1,0 +1,51 @@
+<ng-container *ngIf="!isVisible">
+    <div class="items-container">
+        <h2>Mes Articles</h2>
+        <div class="all-item">
+            <div class="item-card" *ngFor="let item of products$ | async">
+                <img [src]="item.imageUrl" alt="{{ item.title }}">
+                <div>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                    <p class="price">{{ item.price }} FCFA</p>
+                    <button (click)="editItem(item._id)">Modifier</button>
+                    <button class="delete" (click)="deleteItem(item._id)">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isVisible">
+    <div class="form-container">
+
+        <h2>Ajouter un Article</h2>
+        <form (ngSubmit)="submitForm()" [formGroup]="form">
+
+            <div class="input-group">
+                <mat-icon>label</mat-icon>
+                <input type="text" formControlName="title" placeholder="Nom de l'article" required>
+            </div>
+
+            <div class="input-group">
+                <mat-icon>description</mat-icon>
+                <textarea formControlName="description" placeholder="Description" required></textarea>
+            </div>
+
+            <div class="input-group">
+                <mat-icon>attach_money</mat-icon>
+                <input type="number" formControlName="price" placeholder="Prix" required>
+            </div>
+
+            <div class="input-group">
+                <mat-icon>image</mat-icon>
+                <input type="text" formControlName="imageUrl" placeholder="Image (URL)" required>
+            </div>
+
+            <button type="submit" [disabled]="!form.valid">
+                <mat-icon>add_circle</mat-icon> Ajouter
+            </button>
+        </form>
+    </div>
+
+</ng-container>

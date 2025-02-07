@@ -1,0 +1,19 @@
+<div class="payment-container">
+    <a (click)="backTo()"><mat-icon>reply</mat-icon></a>
+
+
+    <div
+        style="display: flex;justify-content: center;align-items: center;flex-wrap: wrap;height: 90vh;gap: 24px;background-color: #f9f9f9;padding: 16px;box-sizing: border-box;">
+        <a *ngFor="let option of paymentOptions">
+            <mat-card class="payment-card" [ngClass]="{ 'selected': selectedOption === option.id, 'visa': option.name.toLowerCase()=='carte bancaire', 'paypal': option.name.toLowerCase()=='paypal', 'om': option.name.toLowerCase()=='orange money','momo': option.name.toLowerCase()=='mtn momo'}"
+                (click)="selectPaymentOption(option.id)">
+                <mat-card-content>
+                    <div class="icon-container">
+                        <img [src]="option.icon" [alt]="option.name" class="payment-icon" />
+                    </div>
+                    <h3 class="payment-title">{{ option.name }}</h3>
+                </mat-card-content>
+            </mat-card>
+        </a>
+    </div>
+</div>
